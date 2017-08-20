@@ -12,12 +12,10 @@ function sendJoke (event) {
     }
     request(options)
       .then((response) => {
-        chuckJoke = JSON.parse(response).value.joke
         return JSON.parse(response).value.joke
       })
       .then((joke) => {
         sendMessage(senderId, joke)
-
         return resolve(joke)
       })
       .catch((err) => {
